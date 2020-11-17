@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import './app.css';
+import Video from './components/Video';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	return (
+		<div className="App">
+			<div className="top-menu">
+				<h1 className="title">2GIF</h1>
+			</div>
+      <p className="description">Upload your video, and quicky transform it into GIF</p>
+      <Video />
+		</div>
+	);
 }
 
 export default App;
