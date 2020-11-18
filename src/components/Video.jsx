@@ -55,6 +55,7 @@ function Video() {
         <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))} />
         <button onClick={convertToGif}>Convert</button>
         {/* Displays outputed gif only when its generated */}
+        {/* TODO: Create download link with outputed gif */}
         {gif && <img width='250' src={gif} alt='Generated gif'/>}
     </div>
     ) : <CircularProgress />;
