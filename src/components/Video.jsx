@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import { Button } from '@material-ui/core';
 // create ffmpeg instance
 const ffmpeg = createFFmpeg({ log: true });
 
@@ -27,7 +27,7 @@ function Video() {
     // Function that handels conversion of mp4 video into GIFs
     const convertToGif = async () => {
         // Check if video is uploaded and if it is in correct format
-        if(video && video.type === 'videp/mp4') {
+        if(video && video.type === 'video/mp4') {
             // Puts video from video into ffmpeg memory
             ffmpeg.FS('writeFile', 'video.mp4', await fetchFile(video));
             
@@ -42,23 +42,34 @@ function Video() {
             // Sets GIF to be usable url
             setGif(url);
         } else {
-            // TODO: Create error message and display it
+            // TODO: Create error message and display it`
             console.log('No video uploaded or wrong format.');
         }
     }
 
 	return ready ? (
-    <div>
+    <div className='container'>
         {/* Displays video only when its uploaded */}
-        {video && <video controls width='250' src={URL.createObjectURL(video)}></video>}
+        {video && <video controls width='250' className='video' src={URL.createObjectURL(video)}></video>}
         {/* Input for video */}
-        <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))} />
-        <button onClick={convertToGif}>Convert</button>
+        <div className="controls">
+            <label className='upload'>
+                <input type="file" accept="video/*" onChange={(e) => setVideo(e.target.files?.item(0))}/>
+                <Button color='primary' textSizeLarge variant='text' component="span">Upload file </Button>
+            </label>
+            <Button onClick={convertToGif} size='large' color='primary' variant="contained" className='convert'>Convert</Button>
+        </div>
         {/* Displays outputed gif only when its generated */}
         {/* TODO: Create download link with outputed gif */}
-        {gif && <img width='250' src={gif} alt='Generated gif'/>}
+        {gif && (
+            <div>
+            <a href={gif} download>
+                <img width='250' src={gif} alt='Generated gif'/>
+            </a>
+            </div>
+            )}
     </div>
-    ) : <CircularProgress />;
+    ) : <CircularProgress className='center'/>;
 }
 
 export default Video;

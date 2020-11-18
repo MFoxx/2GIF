@@ -8,9 +8,11 @@
     top: 0;
 }
 
-.top-menu .title {
+.top-menu .img {
     text-align: center;
-    margin: 0px;
+    margin: auto;
+    display: block;
+    max-height: 55px;
 }
 
 .description {
@@ -19,4 +21,50 @@
     padding: 20px;
     font-size: 20px;
     font-style: italic;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.controls {
+    padding-top: 20px;
+}
+
+.center {
+    display: block !important;
+    margin: auto !important;
+    text-align: center;
+    margin-top: 150px !important;
+}
+
+/* .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+} */
+
+.container {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.upload{
+    display: block;
+    padding-top: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+.convert {
+    display: block;
+    padding-top: 20px;
+    text-align: center;
+    margin: 50px auto !important;
+}
+
+.video {
+    padding-top: 50px;
 }
