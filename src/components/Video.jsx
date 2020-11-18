@@ -26,19 +26,25 @@ function Video() {
 
     // Function that handels conversion of mp4 video into GIFs
     const convertToGif = async () => {
-        // Puts video from video into ffmpeg memory
-        ffmpeg.FS('writeFile', 'video.mp4', await fetchFile(video));
-
-        // Runs ffmpeg bash command that converts mp4 into gif
-        await ffmpeg.run('-i', 'video.mp4', '-t', '2.5', '-ss', '2.0', '-f', 'gif', 'output.gif');
-
-        // Writes outputed gif into ffmpeg memory
-        const data = ffmpeg.FS('readFile', 'output.gif');
-
-        // Creates usable URL of outputed gif, that can be used to download, and source the output
-        const url = URL.createObjectURL(new Blob([data.buffer], {type: 'image/gif'}))
-        // Sets GIF to be usable url
-        setGif(url);
+        // Check if video is uploaded and if it is in correct format
+        if(video && video.type === 'videp/mp4') {
+            // Puts video from video into ffmpeg memory
+            ffmpeg.FS('writeFile', 'video.mp4', await fetchFile(video));
+            
+            // Runs ffmpeg bash command that converts mp4 into gif
+            await ffmpeg.run('-i', 'video.mp4', '-t', '2.5', '-ss', '2.0', '-f', 'gif', 'output.gif');
+    
+            // Writes outputed gif into ffmpeg memory
+            const data = ffmpeg.FS('readFile', 'output.gif');
+    
+            // Creates usable URL of outputed gif, that can be used to download, and source the output
+            const url = URL.createObjectURL(new Blob([data.buffer], {type: 'image/gif'}))
+            // Sets GIF to be usable url
+            setGif(url);
+        } else {
+            // TODO: Create error message and display it
+            console.log('No video uploaded or wrong format.');
+        }
     }
 
 	return ready ? (
