@@ -1,12 +1,11 @@
-# 2GIF - GIF Converter
+# 2GIF - MP4 to GIF converter
 Convert your videos into GIFs, fast and for free.  
 
 ## Info
-Version: 0.0.1  
+Version: 0.1.0  
 GitHub: [repository]('https://github.com/MFoxx/2GIF')  
 Deployment: TBD  
 Deployment version TBD  
-Roadmap: TBD  
 To-Do: [Notion]('https://www.notion.so/ggstudio/2GIF-a97bd5113336432687cd977c811b1ee4')  
 
 Styling: TBD  

@@ -29,6 +29,8 @@ input[type="file"] {
 
 .controls {
     padding-top: 20px;
+    display: flex; 
+    flex-direction: column;
 }
 
 .center {
@@ -38,12 +40,12 @@ input[type="file"] {
     margin-top: 150px !important;
 }
 
-/* .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-} */
+.loading-gif {
+    display: block !important;
+    margin: auto !important;
+    text-align: center;
+    margin-top: 0px !important;
+}
 
 .container {
     margin: auto;
@@ -52,14 +54,13 @@ input[type="file"] {
 }
 
 .upload{
-    display: block;
     padding-top: 20px;
     text-align: center;
     margin: auto;
 }
 
 .convert {
-    display: block;
+    /* display: block; */
     padding-top: 20px;
     text-align: center;
     margin: 50px auto !important;
@@ -67,4 +68,25 @@ input[type="file"] {
 
 .video {
     padding-top: 50px;
+}
+
+.link-nodisplay {
+    text-decoration: none;
+    width: auto;
+    margin: auto;
+}
+
+
+.btn-download {
+    margin-top: 10px !important;
+}
+
+.footer-link {
+    color: white;
+    transition: .4s;
+    padding-bottom: 10px;
+}
+
+.footer-link:hover {
+    color: #E91E63;
 }
