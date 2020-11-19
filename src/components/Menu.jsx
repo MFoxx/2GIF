@@ -1,3 +1,5 @@
+// Top menu component, can be transformed into navbar in future
+
 function Menu() {
 	return (
 		<div className="top-menu">

@@ -1,3 +1,6 @@
+// Component that includes upload and covert button, uploaded video preview and outputed gif as well as button to download it
+// This component handels the logical process of converting video files into GIFs, through ffmpeg package, through WebAssembly. More on this here: https://www.youtube.com/watch?v=-OTc0Ki7Sv0
+
 // Imports
 import { useEffect, useState } from 'react';
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
@@ -15,7 +18,7 @@ function Video() {
     const [gif, setGif] = useState(); // Output gif will be stored in gif state hook
     const [gifLoading, setGifLoading] = useState(false); // State that indicates when video is converted into gif
     const [duration, setDuration] = useState(); // Video metadata used for duration
-    const [ error, setError ] = useState();
+    const [ error, setError ] = useState(); // This holds error message // default is empty => no error => nothing is displayed
 
     // Function that loads ffmpeg
 	const load = async () => {
@@ -28,6 +31,7 @@ function Video() {
 		load();
     }, []);
     
+    // Function that resets error massage, this function is passed into child component for closing the error
     const errorSetter = () => {
         setError();
     }
@@ -80,6 +84,7 @@ function Video() {
             </label>
             <Button onClick={convertToGif} size='large' color='primary' variant="contained" className='convert' disabled={gifLoading} >Convert</Button>
         </div>
+        {/* Display loading when the video is in conversion to GIF */}
         {gifLoading && (
             <CircularProgress className='loading-gif'/>
         )}
@@ -96,7 +101,7 @@ function Video() {
         )}
 
     </div>
-    ) : <CircularProgress className='center'/>;
+    ) : <CircularProgress className='center'/>; // Display loading till ffmpeg loads
 }
 
 export default Video;

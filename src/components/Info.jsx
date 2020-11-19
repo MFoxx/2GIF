@@ -1,3 +1,5 @@
+// Component with description and tutorial of how to use the application
+
 import { Box, Card, CardContent, Container, Typography } from '@material-ui/core';
 
 function Info() {
@@ -7,7 +9,7 @@ function Info() {
 				<Card color="secondary" raised>
 					<CardContent>
 						<Typography color="primary" variant="h5" align="center">
-							Convert your vidoes into MP4s. Fast and for free.
+							Convert your vidoes into GIFs. Fast and for free.
 						</Typography>{' '}
 						<br />
 						<Typography align="center">
