@@ -1,4 +1,4 @@
-import './app.css';
+import './App.css';
 import Video from './components/Video';
 import Menu from './components/Menu';
 import Info from './components/Info';
