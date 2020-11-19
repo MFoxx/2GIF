@@ -84,7 +84,7 @@ input[type="file"] {
 .footer-link {
     color: white;
     transition: .4s;
-    padding-bottom: 10px;
+    padding: 10px;
 }
 
 .footer-link:hover {
